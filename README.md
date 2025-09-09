@@ -35,19 +35,22 @@ según los valores que uses en SQL Server.
 
 # Elecciones de diseño
 ## Back-End
-En cuanto a la funcionalidad del Back-End se usaron dos “tipos” de archivos: controladores y rutas, se creó un archivo controlador y ruta para traer y usar los datos de cada tabla de la base de datos y otro controlador y ruta para manejar todo lo proveniente de la API proveída. 
+El Back-End está organizado en dos tipos de archivos principales: controladores y rutas. Los controladores contienen los métodos encargados de la lógica de negocio (GET, POST, DELETE y UPDATE), a través de los cuales se interactúa tanto con la base de datos como con la API externa. Las rutas, por su parte, definen los endpoints que exponen dichos métodos al cliente. Esta estructura fue elegida por la familiaridad adquirida en proyectos anteriores, donde se demostró ser una forma clara y mantenible de organizar el código.
 
-Básicamente en un controlador se hacen métodos los cuales son GET, POST, DELETE, O UPDATE y a través de estos se interactúa con la base de datos o API, y en las rutas se crean los Endpoints usados para cada uno de los métodos hechos en los controladores.
+Dentro de la lógica del sistema se implementaron tres métodos principales:
 
-Se eligió esta estructura dada una familiaridad adquirida en proyectos anteriores en los que se usó la misma estructura.
+submitVote: método POST que se ejecuta al presionar el botón Submit Vote, añadiendo un nuevo votante a la base de datos.
 
-Se crearon tres métodos, submitVote, un método POST que se ejecuta cuando se toca el botón Submit Vote y añade al votante a la base de datos, getTopCountries es un método GET que trae los top 10 paises con mas votos desde la base de datos y getAllCountries que trae todos los países y los datos sobre ellos pedidos desde la API, el nombre del país ingresado por el usuario luego se compara con los nombres de los países extraídos por getAllCountries para asignarle al país que el usuario votó su Capital, Region, etc.
+getTopCountries: método GET que obtiene los 10 países con más votos desde la base de datos.
 
-Tal como se mencionó anteriormente también se creó una base de datos SQL la cual tiene una sola tabla, esta siendo llamada Users y tiene los campos Id, name, Email y Country. A Través de la base de datos se pueden crear usuarios y sus países favoritos
+getAllCountries: método GET que recupera todos los países y su información desde la API externa. Posteriormente, el nombre ingresado por el usuario se compara con estos datos para asignarle información adicional como capital, región o subregión.
+
+La base de datos utilizada es SQL Server y cuenta con una única tabla denominada Users, compuesta por los campos: Id, Name, Email y Country. A través de esta tabla se almacenan los usuarios y sus países favoritos, permitiendo registrar y consultar las votaciones de forma persistente.
 
 ## Front-End
-La carpeta Front tiene una carpeta src dentro de ella la cual contiene los archivos mainPage.jsx y mainPage.css los cuales contienen todo o la gran mayoría del código Front-End, en mainPage.jsx se llaman los Endpoints creados en el Back-End tal como submitVote, el cual permite a un usuario votar a un país lo cual es validado, o tambien como getTopCountries el cual muestra una lista con el top 10 paises mas votados que se actualizan en tiempo real y además incluye un buscador que busca por país, capital, region y sub-region. 
-Y en mainPage.css se edita el aspecto visual de la pagina para que este tan parecido como se puede a las imágenes proveídas.
+La carpeta Front contiene el código correspondiente a la parte visual de la aplicación. Dentro de ella se encuentra la carpeta src, que incluye los archivos principales mainPage.jsx y mainPage.css. En mainPage.jsx se gestionan las llamadas a los endpoints del Back-End, como submitVote, que permite a los usuarios votar por un país con validación incluida, y getTopCountries, que muestra en tiempo real el top 10 de países más votados. Además, este componente incorpora un buscador que permite filtrar por país, capital, región y subregión.
+
+Por su parte, el archivo mainPage.css define los estilos visuales de la página, buscando que la interfaz se asemeje lo más posible a las imágenes de referencia provistas en el desafío.
 
 
 
