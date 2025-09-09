@@ -36,7 +36,9 @@ según los valores que uses en SQL Server.
 # Elecciones de diseño
 ## Back-End
 El Back-End está organizado en dos tipos de archivos principales: controladores y rutas, de los cuales hay cuatro en total: countries.controller.js, countries.routes.js y voting.controller.js, voting.routes.js. 
+
 Los controladores contienen los métodos encargados de la lógica de negocio (GET, POST, DELETE y UPDATE), a través de los cuales se interactúa tanto con la base de datos como con la API externa. Las rutas, por su parte, definen los endpoints que exponen dichos métodos al cliente. 
+
 Esta estructura fue elegida por la familiaridad adquirida en proyectos anteriores, donde se demostró ser una forma clara y mantenible de organizar el código.
 
 Dentro de la lógica del sistema se implementaron tres métodos principales:
