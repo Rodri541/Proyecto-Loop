@@ -35,7 +35,8 @@ según los valores que uses en SQL Server.
 
 # Elecciones de diseño
 ## Back-End
-El Back-End está organizado en dos tipos de archivos principales: controladores y rutas. Los controladores contienen los métodos encargados de la lógica de negocio (GET, POST, DELETE y UPDATE), a través de los cuales se interactúa tanto con la base de datos como con la API externa. Las rutas, por su parte, definen los endpoints que exponen dichos métodos al cliente. Esta estructura fue elegida por la familiaridad adquirida en proyectos anteriores, donde se demostró ser una forma clara y mantenible de organizar el código.
+El Back-End está organizado en dos tipos de archivos principales: controladores y rutas, de los cuales hay cuatro en total: countries.controller.js, countries.routes.js y voting.controller.js, voting.routes.js. Los controladores contienen los métodos encargados de la lógica de negocio (GET, POST, DELETE y UPDATE), a través de los cuales se interactúa tanto con la base de datos como con la API externa. Las rutas, por su parte, definen los endpoints que exponen dichos métodos al cliente. 
+Esta estructura fue elegida por la familiaridad adquirida en proyectos anteriores, donde se demostró ser una forma clara y mantenible de organizar el código.
 
 Dentro de la lógica del sistema se implementaron tres métodos principales:
 
@@ -45,7 +46,7 @@ getTopCountries: método GET que obtiene los 10 países con más votos desde la 
 
 getAllCountries: método GET que recupera todos los países y su información desde la API externa. Posteriormente, el nombre ingresado por el usuario se compara con estos datos para asignarle información adicional como capital, región o subregión.
 
-La base de datos utilizada es SQL Server y cuenta con una única tabla denominada Users, compuesta por los campos: Id, Name, Email y Country. A través de esta tabla se almacenan los usuarios y sus países favoritos, permitiendo registrar y consultar las votaciones de forma persistente.
+La base de datos utilizada es SQL Server y cuenta con una única tabla denominada Users, compuesta por los campos: Id, Name, Email y Country.
 
 ## Front-End
 La carpeta Front contiene el código correspondiente a la parte visual de la aplicación. Dentro de ella se encuentra la carpeta src, que incluye los archivos principales mainPage.jsx y mainPage.css. En mainPage.jsx se gestionan las llamadas a los endpoints del Back-End, como submitVote, que permite a los usuarios votar por un país con validación incluida, y getTopCountries, que muestra en tiempo real el top 10 de países más votados. Además, este componente incorpora un buscador que permite filtrar por país, capital, región y subregión.
