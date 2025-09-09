@@ -1,5 +1,5 @@
 # Documentación Full Stack-challenge
-El proyecto llevó alrededor de 10-11 horas y los lenguajes usados fueron Node.js, React, SQL y CSS.
+El proyecto llevó alrededor de 10-12 horas y los lenguajes usados fueron Node.js, React, SQL y CSS.
 # Cómo iniciar
 
 ### 1. Configuración de la base de datos
